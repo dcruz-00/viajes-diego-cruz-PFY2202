@@ -1,7 +1,13 @@
+import { ApolloProvider } from '@apollo/client/react'
+import { clienteGraphql } from './graphql/cliente.js'
 import AppRoutes from './routes/AppRoutes.jsx'
 
 function App() {
-  return <AppRoutes />
+  return (
+    <ApolloProvider client={clienteGraphql}>
+      <AppRoutes />
+    </ApolloProvider>
+  )
 }
 
 export default App
