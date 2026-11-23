@@ -117,12 +117,30 @@ Probado en el sitio publicado (GitHub Pages) y en `npm run dev`.
 
 | Navegador | Versión | Escritorio | Móvil / vista responsiva | Observaciones |
 |---|---|---|---|---|
-| Chromium | — | — | — | — |
-| Firefox | — | — | — | — |
+| Chromium | 158.0.8127.36 | ✅ Casos 1 a 17 | ✅ 390, 768 y 1280 px | Sin diferencias |
+| Firefox | 160.0.1 | ✅ Casos 1 a 17 | ✅ 390, 768 y 1280 px | Sin diferencias; también probado sin service workers |
 
-Casos revisados en cada navegador: 1 a 17 de la tabla anterior, más la vista en anchos de 390 px, 768 px y 1280 px.
+**Sin service workers:** la API simulada normalmente funciona con un *service worker*. Si el navegador los tiene deshabilitados (en Firefox, `dom.serviceWorkers.enabled = false` en `about:config`), MSW 3 cambia a su modo alternativo (*fallback mode*): intercepta las peticiones dentro de la propia página y la app sigue funcionando igual. En la consola de `npm run dev` aparece `[MSW] Mocking enabled (fallback mode)`; en el sitio publicado MSW no escribe en la consola. Si aun así MSW no lograra iniciar, la app muestra un mensaje de error en vez de quedar en blanco.
 
-**Hallazgo:** en una ventana privada de Firefox no se pueden registrar *service workers*, así que MSW no inicia. En ese caso la app muestra un mensaje explicando el problema en vez de quedar en blanco.
+### Capturas
+
+Cusco con vuelo y hotel elegidos, en Chromium y Firefox:
+
+![Chromium, detalle de Cusco](docs/capturas/chromium-detalle.png)
+![Firefox, detalle de Cusco](docs/capturas/firefox-detalle.png)
+
+Firefox en vista responsiva (390 px), resumen del viaje:
+
+![Firefox, vista móvil](docs/capturas/firefox-movil.png)
+
+Error del servidor simulado en la consulta GraphQL, con Reintentar y una alternativa:
+
+![Chromium, error del servidor](docs/capturas/chromium-error-servidor.png)
+
+Firefox con service workers desactivados: la app sigue funcionando en modo alternativo.
+
+![Firefox, service workers desactivados](docs/capturas/firefox-service-workers-desactivados.png)
+![Firefox, MSW en modo fallback](docs/capturas/firefox-modo-fallback.png)
 
 ## Limitaciones
 
