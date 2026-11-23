@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from 'react-router'
+import PanelFallas from '../components/PanelFallas.jsx'
 
 const claseEnlace = ({ isActive }) =>
   `rounded px-3 py-2 font-semibold ${isActive ? 'bg-primario text-white' : 'text-primario hover:bg-borde'}`
@@ -24,9 +25,10 @@ function LayoutPrincipal() {
         <Outlet />
       </main>
 
-      <footer className="border-t border-borde bg-superficie">
-        <div className="mx-auto max-w-6xl px-4 py-4 text-sm text-texto-suave">
-          Proyecto académico PFY2202 · Datos simulados
+        <footer className="border-t border-borde bg-superficie">
+        <div className="mx-auto max-w-6xl space-y-3 px-4 py-4 text-sm text-texto-suave">
+          <PanelFallas />
+          <p>Proyecto académico PFY2202 · Datos simulados</p>
         </div>
       </footer>
     </div>
