@@ -1,2 +1,3 @@
-// Handlers de la API simulada. Se completan en los siguientes pasos.
-export const handlers = []
+import { restHandlers } from './rest.js'
+
+export const handlers = [...restHandlers]
