@@ -5,6 +5,7 @@ import AvisoCarga from '../components/AvisoCarga.jsx'
 import { EsqueletoEncabezado } from '../components/Esqueleto.jsx'
 import MensajeError from '../components/MensajeError.jsx'
 import { useConsulta } from '../hooks/useConsulta.js'
+import OpcionesViaje from '../components/OpcionesViaje.jsx'
 
 function DetalleDestino() {
   const { id } = useParams()
@@ -48,6 +49,8 @@ function DetalleDestino() {
           <Actividades actividades={destino.actividades} />
         </header>
       )}
+      {/* key: al cambiar de destino se reinicia la selección de vuelo y hotel. */}
+      {destino && !error && <OpcionesViaje key={destino.id} destinoId={destino.id} />}
     </article>
   )
 }
