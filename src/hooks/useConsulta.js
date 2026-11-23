@@ -15,6 +15,7 @@ export function useConsulta(clave, consultar) {
   // basta con ejecutar el efecto cuando cambia la clave.
   useEffect(() => {
     asegurarDatos(clave, consultar)
+    // oxlint-disable-next-line react-hooks/exhaustive-deps -- consultar depende solo de la clave
   }, [clave])
 
   return {
